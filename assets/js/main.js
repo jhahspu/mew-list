@@ -24,16 +24,21 @@ async function appReady() {
 }
 
 function searchProducts(searchTerm) {
-  console.log(searchTerm)
-  if (searchTerm === "") return
-  const searchResults = products.filter(product => {
-    return (
-      product.sku.toLowerCase().includes(searchTerm) ||
-      product.desc.toLowerCase().includes(searchTerm)
-    )
-  })
+  const searchResults = [];
 
-  return searchResults
+  products.forEach(product => {
+    const sl = product.sku.toLowerCase()
+    const dl = product.desc.toLowerCase()
+
+    if (sl.includes(searchTerm) || dl.includes(searchTerm)) {
+      searchResults.push({
+        sku: product.sku,
+        desc: product.desc
+      })
+    }
+  })
+  searchResults.sort((a, b) => a.desc.localeCompare(b.desc))
+  return searchResults;
 }
 
 function debounce(func, delay) {
@@ -48,25 +53,30 @@ const debouncedSearch = debounce((e) => {
   if (e.target.value) {
     const searchResults = searchProducts(e.target.value.toLowerCase())
     processResults(searchResults)
+  } else {
+    document.querySelector("[data-results]").textContent = ""
   }
 }, 1000)
 
 function processResults(data) {
-  const divRes = document.querySelector("[data-results]")
-  divRes.textContent = ""
+  const resContainer = document.querySelector("[data-results]")
+  resContainer.textContent = ""
 
   if (data.length > 0) {
     data.forEach(line => {
-      const divParent = document.createElement("div")
-      const spanSKU = document.createElement("span")
-      divParent.appendChild(spanSKU)
-      spanSKU.textContent = line.SKU
-      const spanDESC = document.createElement("span")
-      spanDESC.textContent = line.desc
-      divParent.appendChild(spanDESC)
-      divRes.appendChild(divParent)
+      const row = document.createElement("tr")
+
+      const col1 = document.createElement("th")
+      col1.textContent = line.sku
+      row.appendChild(col1)
+
+      const col2 = document.createElement("span")
+      col2.textContent = line.desc
+      row.appendChild(col2)
+
+      resContainer.appendChild(row)
     })
   } else {
-    divRes.textContent = "no results"
+    resContainer.textContent = "no results"
   }
 }
