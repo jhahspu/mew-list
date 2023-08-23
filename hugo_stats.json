@@ -1,0 +1,22 @@
+{
+  "htmlElements": {
+    "tags": [
+      "body",
+      "div",
+      "h1",
+      "head",
+      "html",
+      "input",
+      "main",
+      "meta",
+      "script",
+      "title"
+    ],
+    "classes": [
+      "container"
+    ],
+    "ids": [
+      "search"
+    ]
+  }
+}
