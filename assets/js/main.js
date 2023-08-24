@@ -13,13 +13,14 @@ async function appReady() {
     .then(csvContent => {
       const lines = csvContent.split('\n')
       lines.forEach(line => {
-        const values = line.split(',')
+        const values = line.split('|')
         if (values.length === 2) {
-          const sku = values[0]
-          const desc = values[1]
+          const sku = values[0].replaceAll(`"`,"")
+          const desc = values[1].replaceAll(`"`,"")
           products.push({ sku, desc })
         }
       })
+      console.log(`found ${products.length} products`)
     })
   document.getElementById("search").addEventListener("input", debouncedSearch)
 
@@ -66,7 +67,9 @@ function debounce(func, delay) {
 
 const debouncedSearch = debounce((e) => {
   if (e.target.value) {
+    // console.log(e.target.value)
     const searchResults = searchProducts(e.target.value.toLowerCase())
+    // console.log(searchResults)
     processResults(searchResults)
   } else {
     document.querySelector("[data-results]").textContent = ""

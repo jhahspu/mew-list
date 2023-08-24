@@ -5,7 +5,6 @@
       "button",
       "details",
       "div",
-      "h1",
       "head",
       "header",
       "hr",
@@ -23,7 +22,6 @@
       "container",
       "content",
       "rem",
-      "spacing-top",
       "step-1"
     ],
     "ids": [
