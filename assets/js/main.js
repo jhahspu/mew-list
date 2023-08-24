@@ -36,6 +36,24 @@ async function appReady() {
     myList = []
     processMyList(myList)
   })
+
+  const countInput = document.querySelector("#count")
+  const btnQP = document.querySelector("[data-btnQP]")
+  const btnQM = document.querySelector("[data-btnQM]")
+
+  btnQP.addEventListener("click", () => {
+    let cq = parseInt(countInput.value)
+    cq = isNaN(cq) ? 0 : cq
+    cq++
+    countInput.value = cq
+  })
+
+  btnQM.addEventListener("click", () => {
+    let cq = parseInt(countInput.value)
+    cq = isNaN(cq) ? 0 : cq
+    cq--
+    countInput.value = cq
+  })
   
 }
 
@@ -116,7 +134,9 @@ function processResults(data) {
 function updateMyList(acc, sku, desc) {
   if (acc === "add") {
     let index = myList.findIndex(x => x.sku === sku)
-    index === -1 && myList.push({sku,desc})
+    let cq = parseInt(document.querySelector("#count").value)
+    cq = isNaN(cq) ? 0 : cq
+    index === -1 && myList.push({sku,desc, count: cq})
   } else {
     myList.splice(myList.findIndex(el => el.sku === sku), 1)
   }
@@ -148,13 +168,15 @@ function processMyList(data) {
       col0.appendChild(btn)
       row.appendChild(col0)
 
-      const col1 = document.createElement("th")
-      col1.textContent = line.sku
+      const col1 = document.createElement("td")
+      const divA = document.createElement("span")
+      divA.innerHTML = `<strong>${line.sku}</strong><span>Count: ${line.count}</span>`
+      col1.appendChild(divA)
+      
+      const divB = document.createElement("span")
+      divB.textContent = line.desc
+      col1.appendChild(divB)
       row.appendChild(col1)
-
-      const col2 = document.createElement("td")
-      col2.textContent = line.desc
-      row.appendChild(col2)
 
       resContainer.appendChild(row)
     })

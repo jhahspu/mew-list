@@ -392,11 +392,70 @@ input {
   }
 }
 
+.inputs {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: var(--step--2);
+      text-align: center;
+    }
+
+    input {
+      margin-block-start: .25rem;
+    }
+
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      input {
+        flex: 1;
+      }
+    }
+
+  }
+
+  input {
+    margin-block-start: .25rem;
+    width: 100%;
+    font-size: var(--step-1);
+    
+
+    &[type=number] {
+      text-align: center;
+    }
+  }
+}
+
+
+
 table {
   width: 100%;
   th, td {
     padding: .25rem;
     text-align: start;
+
+    & > span {
+      display: block;
+
+      &:first-of-type {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &:last-of-type {
+        margin-block-start: .125rem;
+      }
+    }
   }
 
   tr:nth-child(2n) {

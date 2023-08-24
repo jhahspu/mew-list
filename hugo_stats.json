@@ -10,21 +10,28 @@
       "hr",
       "html",
       "input",
+      "label",
       "link",
       "main",
       "meta",
+      "path",
       "script",
       "summary",
+      "svg",
       "table",
       "title"
     ],
     "classes": [
       "container",
       "content",
+      "h-6",
+      "inputs",
       "rem",
-      "step-1"
+      "step-1",
+      "w-6"
     ],
     "ids": [
+      "count",
       "search"
     ]
   }

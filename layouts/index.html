@@ -18,15 +18,37 @@
 
       <hr>
 
-      <div>
-
-        <input
-          type="search"
-          name="search"
-          id="search"
-          class="step-1"
-          placeholder="search here"
-          autofocus >
+      <div class="inputs">
+        <div>
+          {{/*  <label for="search">Search</label>  */}}
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="search here"
+            autofocus >
+        </div>
+        <div>
+          {{/*  <label for="count">Count</label>  */}}
+          <div>
+            <button data-btnQP>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+              </svg>
+            </button>
+            <input
+              type="number"
+              name="count"
+              id="count"
+              step="1"
+              placeholder="count" >
+            <button data-btnQM>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
       </div>
     </div>
