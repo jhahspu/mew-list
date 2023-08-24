@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  {{ $options := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
+    {{ with resources.Get "scss/main.scss" | toCSS $options | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
 </head>
 <body>
 
-  <main class="container">
+  <main>
     {{ block "main" . }}{{ end }}
   </main>
 

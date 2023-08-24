@@ -1,13 +1,39 @@
 {{ define "main" }}
 
-  <h1>MEW List</h1>
+<div class="content">
 
-  <div>
+  <header>
+    <div class="container content">
+      <details>
+        <summary class="step-1" data-listitems></summary>
+        <div>
+          <table data-mylist></table>
+        </div>
 
-    <input type="search" name="search" id="search" placeholder="start here">
+        <div>
+          <button class="rem" data-emptylist>Clear List</button>
+        </div>
+        
+      </details>
 
+      <hr>
+
+      <div>
+
+        <input
+          type="search"
+          name="search"
+          id="search"
+          class="step-1"
+          placeholder="search here"
+          autofocus >
+
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <table data-results></table>
   </div>
-
-  <table data-results></table>
-
+</div>
 {{ end }}

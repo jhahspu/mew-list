@@ -2,19 +2,29 @@
   "htmlElements": {
     "tags": [
       "body",
+      "button",
+      "details",
       "div",
       "h1",
       "head",
+      "header",
+      "hr",
       "html",
       "input",
+      "link",
       "main",
       "meta",
       "script",
+      "summary",
       "table",
       "title"
     ],
     "classes": [
-      "container"
+      "container",
+      "content",
+      "rem",
+      "spacing-top",
+      "step-1"
     ],
     "ids": [
       "search"
