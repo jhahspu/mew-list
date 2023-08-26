@@ -1,0 +1,4 @@
+github.com/gethugothemes/hugo-modules/images v0.0.0-20230823074046-d7ebb75df8b9 h1:l4LDI7T3tK//vOOKlx3DlvcG+4lU5GJjyAoPNi6QKDg=
+github.com/gethugothemes/hugo-modules/images v0.0.0-20230823074046-d7ebb75df8b9/go.mod h1:FKliP3qOW9diIcQeLtyZ0Hdhg3PL8bdAkC/6O+XtU90=
+github.com/gethugothemes/hugo-modules/pwa v0.0.0-20230823074046-d7ebb75df8b9 h1:tSkNTpzcxtWyqh/Yy5x9r3lxoqDlYS12+vFVGlyc0KI=
+github.com/gethugothemes/hugo-modules/pwa v0.0.0-20230823074046-d7ebb75df8b9/go.mod h1:TRv7iszdfo37O1PbBEE+S8X/enAdpRIxK5DGrp13Qbo=

@@ -1,10 +1,16 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'MEW List'
 
 ########################## Permalinks ############################
 [permalinks.page]
 "pages" = "/:slugorfilename/"
+
+############################# Modules ############################
+[module]
+[[module.mounts]]
+source = "assets"
+target = "assets"
 
 ########## BUILD ##########
 [build]
@@ -24,3 +30,18 @@ target = 'css'
 [[build.cachebusters]]
 source = 'assets/.*\.(.*)$'
 target = '$1'
+
+############################# Outputs ##############################
+[outputs]
+home = ['HTML', 'RSS', 'WebAppManifest']
+
+############################ Media types ############################
+[mediaTypes]
+[mediaTypes."application/manifest+json"]
+suffixes = ["webmanifest"]
+
+############################ Output Format ###########################
+[outputFormats]
+[outputFormats.WebAppManifest]
+mediaType = "application/manifest+json"
+rel = "manifest"
