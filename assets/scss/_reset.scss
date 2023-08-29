@@ -341,16 +341,6 @@
   scrollbar-gutter: stable;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  & > main {
-    flex: 1;
-  }
-}
 
 details {
   summary {
