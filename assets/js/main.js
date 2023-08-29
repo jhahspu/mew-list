@@ -138,6 +138,7 @@ function updateMyList(acc, sku, desc) {
     cq = isNaN(cq) ? 0 : cq
     index === -1 && myList.push({sku,desc, count: cq})
   } else {
+    // console.log(acc, sku, desc)
     myList.splice(myList.findIndex(el => el.sku === sku), 1)
   }
   
@@ -163,7 +164,7 @@ function processMyList(data) {
       `
       btn.classList.add("rem")
       btn.addEventListener("click", () => {
-        updateMyList(line.sku, line.desc)
+        updateMyList("", line.sku, line.desc)
       })
       col0.appendChild(btn)
       row.appendChild(col0)
